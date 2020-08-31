@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+
+	<!-- it is for ioc spring.code.ioc -->
+	<!-- <bean id="airtel" class="spring.code.ioc.Airtel"/> <bean id="vodafone" 
+		class="spring.code.ioc.Vodafone"/> <bean id="sim" class="spring.code.ioc.Vodafone"/> -->
+
+
+
+	<!--it is for dependency setter injection spring.code.dependencyinjection -->
+
+	<bean id="student" class="spring.code.dependencyinjection.Student">
+		<!-- it will find the user define setter method with property name if not 
+			found then it show error -->
+		<property name="studentName" value="vivek ranjan" />
+		<property name="id" value="10" />
+	</bean>
+
+	<!-- it is for dependency constructor injection spring.code.dependencyinjection -->
+	  <bean id="customer"
+		class="spring.code.dependencyinjection.Customer">
+		<!-- it will find the user define setter method with property name if not 
+			found then it show error -->
+		<constructor-arg name="id" value="10" />
+		<constructor-arg name="name" value="vivek" />
+	</bean>
+	<bean id="newscustomer"
+		class="spring.code.dependencyinjection.Customer">
+		<!-- it will find the user define setter method with property name if not 
+			found then it show error -->
+		<constructor-arg name="id" value="1" />
+	</bean>
+	
+	<!--objectDi  -->
+		<bean id="mathcheats" class="spring.code.objectDi.MathCheat" />
+	<bean id="studentobj" class="spring.code.objectDi.Student" >
+	<property name="mathcheat">
+	<bean  class="spring.code.objectDi.MathCheat"><!-- this is the bad approach iside we dont have to write this because whenever you make this it will make object below one is best approach -->
+	</bean>
+	</property>
+	</bean>
+	
+	<bean id="studentobj1" class="spring.code.objectDi.Student" >
+	<property name="mathcheat" ref="mathcheats"/>
+	</bean>
+</beans>
+

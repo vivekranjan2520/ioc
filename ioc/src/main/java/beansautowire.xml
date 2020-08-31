@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	
+	<!-- bean definitions here -->
+	<!-- <bean id="heartobj" class="spring.code.autowired.Heart"/> <bean id="human" 
+		class="spring.code.autowired.Human"> <property name="heart" ref="heartobj"></property> 
+		</bean> -->
+	<bean id="heartobj" class="spring.code.autowired.Heart" />
+	<bean id="human" class="spring.code.autowired.Human"
+		autowire="constructor" />
+	<!-- in byname autowire the heart shoulb name same as a varible in human 
+		class and in byType it use the qualified name spring.code.autowired.Heart 
+		and if the class name Heart is matching than it can use bytype -->
+
+</beans>
+
